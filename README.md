@@ -6,7 +6,7 @@ R版本資訊摘要
 
 - R version       3.5.0  (2018-04-23)
 - Rstudio version 1.1.447(2018-04-18)
-  - 印象中Rstudio2017的某個版本起，支援big5編碼，google表單的csv檔用utf8-8在R裡面讀則會產生亂碼。
+  - 印象中Rstudio2017的某個版本起，支援big5編碼，UTF-8跟big5的讀檔方式些許不同，資料匯入是介紹UTF-8的讀取。
   Platform: x86_64-w64-mingw32/x64 (64-bit)
   Running under: Windows >= 8 x64 (build 9200)
 
