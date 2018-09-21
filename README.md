@@ -135,11 +135,140 @@ investigation$rev1<-recode(investigation$rev1,"'20000左右，不只掛一個計
 investigation$rev1<-recode(investigation$rev1,"1000=1000")
 summary(investigation$rev1)
 
-#其他的變項recode方法一致。都取組中點。
+summary.factor(investigation$workhour1)
 
-#讀取BIG5方法，但或許從我更新的GOOGLE試算表下載會比較少問題。
+investigation$workhour1[investigation$workhour1=="平日幾乎每天都在實驗室裡待6~8HR"] <-140
+investigation$workhour1[investigation$workhour1==">100"] <-101
+investigation$workhour1[investigation$workhour1=="0-10HR"]<-5
+investigation$workhour1[investigation$workhour1=="100HR以上 無法實際估計"]<-101
+investigation$workhour1[investigation$workhour1=="101HR"]<-101
+investigation$workhour1[investigation$workhour1=="11-20HR"]<-15
+investigation$workhour1[investigation$workhour1=="1200HR"]<-NA
+investigation$workhour1[investigation$workhour1=="133HR"]<-133
+investigation$workhour1[investigation$workhour1=="160 Hr"]<-160
+investigation$workhour1[investigation$workhour1=="160HR以上"] <-161
+investigation$workhour1[investigation$workhour1=="200HR"]<-200
+investigation$workhour1[investigation$workhour1=="21-30HR"]<-25
+investigation$workhour1[investigation$workhour1=="31-40HR"]<-35
+investigation$workhour1[investigation$workhour1=="31-50HR不等"]<-40
+investigation$workhour1[investigation$workhour1=="41-50HR"]<-45
+investigation$workhour1[investigation$workhour1=="51-60HR"]<-55
+investigation$workhour1[investigation$workhour1=="61-70HR"]<-65
+investigation$workhour1[investigation$workhour1=="71-80HR"]<-75
+investigation$workhour1[investigation$workhour1=="96HR"]<-96
+investigation$workhour1[investigation$workhour1=="一天八HR，一週五天"]<-160
+investigation$workhour1[investigation$workhour1=="不一定，看情況(期中期末會特別忙)"]<-NA
+investigation$workhour1[investigation$workhour1=="不等，看老師狀況"]<-NA
+investigation$workhour1[investigation$workhour1=="包含平日，一天大約五HR，共約 150 hr"]<-150
+investigation$workhour1[investigation$workhour1=="平日幾乎每天都在實驗室裡待6~8HR"]<-140
+investigation$workhour1[investigation$workhour1=="因是責任制，不定時，有時候還要熬夜工作"]<-NA
+investigation$workhour1[investigation$workhour1=="老師想要你做多久就做多久"]<-NA
+investigation$workhour1[investigation$workhour1=="每天"]<-NA
+investigation$workhour1[investigation$workhour1=="每天6HR 不包含假日"]<-120
+investigation$workhour1[investigation$workhour1=="沒有實際上下班時間 自行安排時間"]<-NA
+investigation$workhour1[investigation$workhour1=="看個人課表平均分配排班，我目前是一個禮拜6HR，有時有事會找代班，所以不固定"]<-NA
+investigation$workhour1[investigation$workhour1=="接近全天待命"]<-NA
+investigation$workhour1[investigation$workhour1=="教授需要時 至少35HR"]<-35
+investigation$workhour1[investigation$workhour1=="責任制"]<-NA
+investigation$workhour1[investigation$workhour1=="250HR"]<-250
+
+investigation$workhour1 <- as.numeric(investigation$workhour1)
+summary(investigation$workhour1)
+
+summary.factor(investigation$rev2)
+
+investigation$rev2[investigation$rev2=="0-2000"]   <-1000
+investigation$rev2[investigation$rev2=="2001-4000"]<-3000
+investigation$rev2[investigation$rev2=="4001-6000"]<-5000
+investigation$rev2[investigation$rev2=="6001-8000"]<-7000
+investigation$rev2[investigation$rev2=="8001-10000"]<-9000
+investigation$rev2[investigation$rev2=="10001-12000"]<-11000
+investigation$rev2[investigation$rev2=="12001-14000"]<-13000
+investigation$rev2[investigation$rev2=="2月1000，3-6月4000元"]<-1000
+investigation$rev2[investigation$rev2=="30HR助理，算一個學期的錢，一個學期7200而已"]<-1440
+investigation$rev2[investigation$rev2=="一支影片7500"]<-NA
+
+investigation$rev2 <- as.numeric(investigation$rev2)
+summary(investigation$rev2)
+
+summary.factor(investigation$workhour2)
+investigation$ workhour2[investigation$ workhour2=="0-10HR"]<-5
+investigation$ workhour2[investigation$ workhour2=="11-20HR"]<-15
+investigation$ workhour2[investigation$ workhour2=="21-30HR"]<-25
+investigation$ workhour2[investigation$ workhour2=="31-40HR"]<-35
+investigation$ workhour2[investigation$ workhour2=="31-50HR"]<-40
+investigation$ workhour2[investigation$ workhour2=="41-50HR"]<-45
+investigation$ workhour2[investigation$ workhour2=="51-60HR"]<-55
+investigation$ workhour2[investigation$ workhour2=="61-70HR"]<-65
+investigation$ workhour2[investigation$ workhour2=="71-80HR"]<-75
+investigation$ workhour2[investigation$ workhour2=="80-100"]<-90
+investigation$ workhour2[investigation$ workhour2=="100HR以上 無法實際估計"]<-101
+investigation$ workhour2[investigation$ workhour2=="80 HR以上吧"]<-81
+investigation$ workhour2[investigation$ workhour2=="80以上"]<-81
+investigation$ workhour2[investigation$ workhour2=="90hrs."]<-90
+investigation$ workhour2[investigation$ workhour2=="不一定，有時候10HR，有時候因課程要求陪學生出去一次就2天1夜"]<-NA
+investigation$ workhour2[investigation$ workhour2=="不定時責任制"]<-NA
+investigation$ workhour2[investigation$ workhour2=="有考試才需批改考卷 不是每個月都有實際工作"]<-NA
+investigation$ workhour2[investigation$ workhour2=="看效率"]<-NA
+investigation$ workhour2[investigation$ workhour2=="133HR"]<-133
+
+investigation$workhour2 <-as.numeric(investigation$workhour2)
+
+summary(investigation$workhour2)
+
+summary.factor(investigation$rev3)
+investigation$rev3[investigation$rev3=="0-2000"]   <-1000
+investigation$rev3[investigation$rev3=="2001-4000"]<-3000
+investigation$rev3[investigation$rev3=="4001-6000"]<-5000
+investigation$rev3[investigation$rev3=="6001-8000"]<-7000
+investigation$rev3[investigation$rev3=="8001-10000"]<-9000
+investigation$rev3[investigation$rev3=="12001-14000"]<-13000
+
+investigation$rev3 <-as.numeric(investigation$rev3)
+summary(investigation$rev3)
+
+summary.factor(investigation$workhour3)
+investigation$ workhour3[investigation$ workhour3=="0-10HR"]<-5
+investigation$ workhour3[investigation$ workhour3=="11-20HR"]<-15
+investigation$ workhour3[investigation$ workhour3=="21-30HR"]<-25
+investigation$ workhour3[investigation$ workhour3=="31-40HR"]<-35
+investigation$ workhour3[investigation$ workhour3=="31-50HR"]<-40
+investigation$ workhour3[investigation$ workhour3=="41-50HR"]<-45
+investigation$ workhour3[investigation$ workhour3=="51-60HR"]<-55
+investigation$ workhour3[investigation$ workhour3=="61-70HR"]<-65
+investigation$ workhour3[investigation$ workhour3=="71-80HR"]<-75
+
+investigation$workhour3<-as.numeric(investigation$workhour3)
+summary(investigation$workhour3)
+
+summary.factor(investigation$rev4)
+investigation$rev4[investigation$rev4=="2001-4000"]<-3000
+investigation$rev4[investigation$rev4=="4001-6000"]<-5000
+investigation$rev4[investigation$rev4=="6001-8000"]<-7000
+investigation$rev4<-as.numeric(investigation$rev4)
+summary(investigation$rev4)
+
+summary.factor(investigation$workhour4)
+investigation$ workhour4[investigation$ workhour4=="0-10HR"]<-5
+investigation$ workhour4[investigation$ workhour4=="11-20HR"]<-15
+investigation$ workhour4[investigation$ workhour4=="21-30HR"]<-25
+investigation$ workhour4[investigation$ workhour4=="31-40HR"]<-35
+investigation$workhour4<-as.numeric(investigation$workhour4)
+summary(investigation$workhour4)
+
+
+investigation$totalrev <- (investigation$rev1 + investigation$rev2 + 
+                           investigation$rev3 + investigation$rev4 + 
+                           investigation$ofcrev + investigation$ofcrev2 + 
+                           investigation$ofcrev3 + investigation$ofcrev4)
+hist(investigation$totalrev)
+hist(investigation$ex.tuition)
+
+
+
+#以下是讀取BIG5方法，但或許從我更新的GOOGLE試算表下載會比較少問題。
 #library(readr)
-#revandexpense <- read_csv("D:/acadamia sinica/revandexpense.csv", 
+#revandexpense <- read_csv("D:/revandexpense.csv", 
 #                          locale = locale(encoding = "BIG5"))
 #View(revandexpense)
 #腳本結束~~
