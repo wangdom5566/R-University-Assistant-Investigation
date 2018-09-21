@@ -60,11 +60,16 @@ R版本資訊摘要
 ## google雲端試算表更新如下，可以下載csv來跑底下的腳本，但MAC和Linux或許得修改部分指令。
 <https://docs.google.com/spreadsheets/d/1Kmw9Fo7zHbbQD9IoBIy89VGWkOvKPuTo79IPYu1xBX0/edit#gid=84061454>
 
+```{r}
+
 變數說明：rev1-rev4     是第1至4份校內工作。
          workhour      是第1至4份校內工作工時。
          ofcrev~ofcrev4是第1至4份校外工作。
          ofcwhr~ofcwhr4是第1至4份校外工作工時。
 
+```
+
+## 腳本如下
 
 ```{r}
 
