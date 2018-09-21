@@ -102,6 +102,8 @@ investigation921[302,11]  <- 1
 #捨棄有問題的第820列樣本和測試1-4列樣本。
 
 investigation921     <- investigation921[5:818,]
+
+#捨棄491列至505列重複填答的樣本
 investigation        <- investigation921[-491:-505,]
 
 #透過car包功能recode
@@ -130,6 +132,11 @@ summary(investigation$rev1)
 #                          locale = locale(encoding = "BIG5"))
 #View(revandexpense)
 #腳本結束~~
+
+#變數說明：rev1-rev4     是第1至4份校內工作。
+#         workhour      是第1至4份校內公做工時。
+#         ofcrev~ofcrev4是第1至4份校外工作。
+#         ofcwhr~ofcwhr4是第1至4份校外工作工時。
 
 pause
 
