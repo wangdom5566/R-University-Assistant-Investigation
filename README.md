@@ -56,4 +56,81 @@ R版本資訊摘要
 
 ```
 
-## 我想到這裡為止，至少已經有同一份資料能用，也解決亂碼問題了，剩下的可能等8月中在確認~~
+## 921新編碼，本來想寫成腳本，但想想可能會有MAC、Linux不一定相容的問題，就只先更新MD檔
+## google雲端試算表更新如下，可以下載csv來跑底下的腳本，但MAC和Linux或許得修改部分指令。
+<https://docs.google.com/spreadsheets/d/1Kmw9Fo7zHbbQD9IoBIy89VGWkOvKPuTo79IPYu1xBX0/edit#gid=84061454>
+
+```{r}
+
+# 安裝car套件
+install.packages("car")
+library(car)
+
+#在D槽讀取investigation921csv檔，
+
+investigation921 <- read.csv("D:/investigation921.csv")
+
+#根據玟亘9月9號整理的問題，在variable11工作份數的錯誤填答作更改。
+
+investigation921[172,11] <- 2
+investigation921[190,11] <- 2
+investigation921[244,11] <- 2
+investigation921[329,11] <- 2
+investigation921[352,11] <- 2
+investigation921[373,11] <- 2
+investigation921[380,11] <- 2
+investigation921[382,11] <- 2
+investigation921[482,11] <- 2
+investigation921[512,11] <- 2
+investigation921[530,11] <- 2
+investigation921[568,11] <- 2
+investigation921[606,11] <- 2
+investigation921[758,11] <- 2
+investigation921[814,11] <- 2
+investigation921[313,11] <- 3
+investigation921[508,11] <- 3
+investigation921[247,11] <- 1
+investigation921[278,11] <- 1
+investigation921[316,11] <- 1
+investigation921[21,11]  <- 2
+investigation921[438,11] <- 2
+investigation921[131,11] <- 1
+investigation921[233,11] <- 1
+investigation921[261,11] <- 1
+investigation921[302,11]  <- 1
+
+#捨棄有問題的第820列樣本和測試1-4列樣本。
+
+investigation921     <- investigation921[5:818,]
+investigation        <- investigation921[-491:-505,]
+
+#透過car包功能recode
+
+investigation$rev1<-recode(investigation$rev1,"'0-2000'=1000")
+investigation$rev1<-recode(investigation$rev1,"'2001-4000'=3000")
+investigation$rev1<-recode(investigation$rev1,"'4001-6000'=5000")
+investigation$rev1<-recode(investigation$rev1,"'6001-8000'=7000")
+investigation$rev1<-recode(investigation$rev1,"'8001-10000'=9000")
+investigation$rev1<-recode(investigation$rev1,"'10001-12000'=11000")
+investigation$rev1<-recode(investigation$rev1,"'12001-14000'=13000")
+investigation$rev1<-recode(investigation$rev1,"'14001-16000'=15000")
+investigation$rev1<-recode(investigation$rev1,"'14001-16000'=15000")
+investigation$rev1<-recode(investigation$rev1,"'算學期的，一學期4500'=900")
+investigation$rev1<-recode(investigation$rev1,"'1000~6000都有'=3500")
+investigation$rev1<-recode(investigation$rev1,"'14000-28000'=21000")
+investigation$rev1<-recode(investigation$rev1,"'20000左右，不只掛一個計畫助理'=20000")
+investigation$rev1<-recode(investigation$rev1,"1000=1000")
+summary(investigation$rev1)
+
+#其他的變項recode方法一致。都取組中點。
+
+#讀取BIG5方法，但或許從我更新的GOOGLE試算表下載會比較少問題。
+#library(readr)
+#revandexpense <- read_csv("D:/acadamia sinica/revandexpense.csv", 
+#                          locale = locale(encoding = "BIG5"))
+#View(revandexpense)
+#腳本結束~~
+
+pause
+
+```
