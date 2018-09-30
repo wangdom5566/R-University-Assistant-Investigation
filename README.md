@@ -83,41 +83,124 @@ investigation921 <- read.csv("D:/investigation921.csv")
 
 #根據玟亘9月9號整理的問題，在variable11工作份數的錯誤填答作更改。
 
-investigation921[172,11] <- 2
-investigation921[190,11] <- 2
-investigation921[244,11] <- 2
-investigation921[329,11] <- 2
-investigation921[352,11] <- 2
-investigation921[373,11] <- 2
-investigation921[380,11] <- 2
-investigation921[382,11] <- 2
-investigation921[482,11] <- 2
-investigation921[512,11] <- 2
-investigation921[530,11] <- 2
-investigation921[568,11] <- 2
-investigation921[606,11] <- 2
-investigation921[758,11] <- 2
-investigation921[814,11] <- 2
-investigation921[313,11] <- 3
-investigation921[508,11] <- 3
-investigation921[247,11] <- 1
-investigation921[278,11] <- 1
-investigation921[316,11] <- 1
-investigation921[21,11]  <- 2
-investigation921[438,11] <- 2
-investigation921[131,11] <- 1
-investigation921[233,11] <- 1
-investigation921[261,11] <- 1
-investigation921[302,11]  <- 1
+investigation921[is.na(investigation921)] <- 0  
 
-#捨棄有問題的第820列樣本和測試1-4列樣本。
 
-investigation921     <- investigation921[5:818,]
+investigation921[173,11] <- 2
+investigation921[191,11] <- 2
+investigation921[245,11] <- 2
+investigation921[330,11] <- 2
+investigation921[353,11] <- 2
+investigation921[374,11] <- 2
+investigation921[381,11] <- 2
+investigation921[383,11] <- 2
+investigation921[483,11] <- 2
+investigation921[513,11] <- 2
+investigation921[531,11] <- 2
+investigation921[569,11] <- 2
+investigation921[607,11] <- 2
+investigation921[759,11] <- 2
+investigation921[815,11] <- 2
+investigation921[314,11] <- 3
+investigation921[509,11] <- 3
+investigation921[248,11] <- 1
+investigation921[279,11] <- 1
+investigation921[317,11] <- 1
+investigation921[22,11]  <- 2
+investigation921[439,11] <- 2
+investigation921[132,11] <- 1
+investigation921[234,11] <- 1
+investigation921[262,11] <- 1
+investigation921[303,11] <- 1
+investigation921[33,11] <-2
+investigation921[116,11] <-2
+investigation921[164,11] <-2
+investigation921[178,11] <-2
+investigation921[226,11] <-2
+investigation921[269,11] <-2
+investigation921[277,11] <-2
+investigation921[364,11] <-2
+investigation921[471,11] <-2
+investigation921[699,11] <-2
+investigation921[726,11] <-2
+investigation921[754,11] <-2
+investigation921[776,11] <-2
+investigation921[765,11] <-2
+investigation921[785,11] <-2
+investigation921[794,11] <-2
+investigation921[355,11] <-3
+investigation921[604,11] <-3
+investigation921[740,11] <-3
+investigation921[270,11] <-1
+investigation921[333,11] <-1
+investigation921[451,11] <-1
+investigation921[579,11] <-1
+investigation921[592,11] <-1
+investigation921[787,11] <-1
 
-#捨棄491列至505列重複填答的樣本
-investigation        <- investigation921[-491:-505,]
+# 1 <-2
+investigation921[59,11] <-3
+investigation921[154,11] <-3
+investigation921[217,11] <-3
+investigation921[355,11] <-3
+investigation921[507,11] <-3
+investigation921[508,11] <-3
+investigation921[604,11] <-3
+investigation921[740,11] <-3
+investigation921[773,11] <-3
+# 2 <-3
+investigation921[229,11] <-4
+# 2 <-4
 
-#透過car包功能recode
+investigation921[715,11] <-4
+# 3 <-4
+
+
+investigation921[14,11] <-5
+investigation921[616,11] <-5
+investigation921[512,11] <-5
+# 4 <-5
+
+investigation921[769,11] <-3
+investigation921[792,11] <-3
+# 3 <-4
+
+investigation921[330,11] <-1
+# 4 <-1
+
+investigation921[213,11] <-2
+investigation921[549,11] <-2
+# 4 <-2
+
+investigation921[566,11] <-2
+investigation921[756,11] <-2
+# 1 <-2
+
+investigation921[474,11] <-3
+# 4 <-3
+
+
+#p.797-799
+#p.32、115、163、177、225、268、276、363、470、670、698、725、753、775、764、784、793原填寫「有1份校內工作」實際上應該是2份校內工作。
+#p.354、603、739原填寫「有1份校內工作」實際上應該是3份校內工作。
+#p.269、332、450、578、591、786原填寫「有2份校內工作」實際上應該是1份校內工作。
+#p.58、153、216、354、506、507、603、739、772原填寫「有2份校內工作」實際上應該是3份校內工作。
+#p.228原填寫「有2份校內工作」，實際上應該是填寫了4份校內工作。
+#p.715原填寫「有3份校內工作」，實際上應該是填寫了4份校內工作。
+
+#p.13、615、511原填寫「有4份校內工作」，實際上應該是填寫了5份校內工作。(不確定)
+#p.768、791原填寫「有4份校內工作」，實際上應該是填寫了3份校內工作。
+#p.329原填寫「有4份校內工作」，表單上只填寫了1份的內容。
+#p.212、548原填寫「有4份校內工作」，表單上只填寫了2份的內容。
+#p.565、755原填寫「有1份校內工作」實際上應該是2份校內工作。
+#p.473 原填寫「有4份校內工作」，實際上應該是填寫了3份校內工作。
+
+
+investigation1 <- investigation921[-818,]    
+investigation2 <- investigation1[-811,]
+investigation3 <- investigation2[-798:-800,]
+investigation4 <- investigation3[-491:-504,]
+investigation <- investigation4[-1:-4,]
 
 investigation$rev1<-recode(investigation$rev1,"'0-2000'=1000")
 investigation$rev1<-recode(investigation$rev1,"'2001-4000'=3000")
@@ -256,14 +339,37 @@ investigation$ workhour4[investigation$ workhour4=="31-40HR"]<-35
 investigation$workhour4<-as.numeric(investigation$workhour4)
 summary(investigation$workhour4)
 
+investigation[is.na(investigation)] <- 0  
+
 
 investigation$totalrev <- (investigation$rev1 + investigation$rev2 + 
                            investigation$rev3 + investigation$rev4 + 
                            investigation$ofcrev + investigation$ofcrev2 + 
                            investigation$ofcrev3 + investigation$ofcrev4)
-hist(investigation$totalrev)
-hist(investigation$ex.tuition)
 
+summary(investigation)
+investigation$
+
+investigation$totalexp <- ((0.2*investigation[,2])+ investigation[,3] +investigation[,4])
+summary(investigation$totalexp)
+
+investigation$totalwhr <- (investigation$workhour1 + investigation$workhour2 + 
+                           investigation$workhour3 + investigation$workhour4 +
+                           investigation$ofcwhr    + investigation$ofcwhr2   +
+                           investigation$ofcwhr3   + investigation$ofcwhr4)
+summary(investigation$totalwhr)
+
+investigation$ofcnum1 <- ifelse(investigation$ofcwhr>0,1,0)
+investigation$ofcnum2 <- ifelse(investigation$ofcwhr2>0,1,0)
+investigation$ofcnum3 <- ifelse(investigation$ofcwhr3>0,1,0)
+investigation$ofcnum4 <- ifelse(investigation$ofcwhr4>0,1,0)
+
+investigation$ofcworknum <- (investigation$ofcnum1 + investigation$ofcnum2+
+                             investigation$ofcnum3 + investigation$ofcnum4)
+
+investigation$totalworknum <- (investigation$worknum + investigation$ofcworknum)
+
+summary(investigation$totalexp)
 
 
 #以下是讀取BIG5方法，但或許從我更新的GOOGLE試算表下載會比較少問題。
