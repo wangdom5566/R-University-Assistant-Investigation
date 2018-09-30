@@ -196,11 +196,11 @@ investigation921[474,11] <-3
 #p.473 原填寫「有4份校內工作」，實際上應該是填寫了3份校內工作。
 
 
-investigation1 <- investigation921[-818,]    
-investigation2 <- investigation1[-811,]
-investigation3 <- investigation2[-798:-800,]
+investigation1 <- investigation921[-817,]    
+investigation2 <- investigation1[-809,]
+investigation3 <- investigation2[-796:-798,]
 investigation4 <- investigation3[-491:-504,]
-investigation <- investigation4[-1:-4,]
+investigationv <- investigation4[-1:-4,]
 
 investigation$rev1<-recode(investigation$rev1,"'0-2000'=1000")
 investigation$rev1<-recode(investigation$rev1,"'2001-4000'=3000")
