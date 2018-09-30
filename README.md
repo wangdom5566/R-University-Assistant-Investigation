@@ -78,129 +78,111 @@ install.packages("car")
 library(car)
 
 #在D槽讀取investigation921csv檔，
-
-investigation921 <- read.csv("D:/investigation921.csv")
-
-#根據玟亘9月9號整理的問題，在variable11工作份數的錯誤填答作更改。
+#把NA轉成0利於變項合併
 
 investigation921[is.na(investigation921)] <- 0  
 
+#據實際情況修改樣本資料：填答的工作份數與後續問題填答數不符者
+#表單上僅填答 1 份校內工作但與原填寫「校內工作份數」不符，故修正為「1 份校內工作」：
+#第 25, 130, 232, 246, 260, 269, 277, 301, 315, 329, 332, 450, 578, 591, 786 列。
+#表單上填答了 2 份校內工作但與原填寫「校內工作份數」不符，故修正為「2 份校內工作」：
 
-investigation921[173,11] <- 2
-investigation921[191,11] <- 2
-investigation921[245,11] <- 2
-investigation921[330,11] <- 2
-investigation921[353,11] <- 2
-investigation921[374,11] <- 2
-investigation921[381,11] <- 2
-investigation921[383,11] <- 2
-investigation921[483,11] <- 2
-investigation921[513,11] <- 2
-investigation921[531,11] <- 2
-investigation921[569,11] <- 2
-investigation921[607,11] <- 2
-investigation921[759,11] <- 2
-investigation921[815,11] <- 2
-investigation921[314,11] <- 3
-investigation921[509,11] <- 3
-investigation921[248,11] <- 1
-investigation921[279,11] <- 1
-investigation921[317,11] <- 1
-investigation921[22,11]  <- 2
-investigation921[439,11] <- 2
-investigation921[132,11] <- 1
-investigation921[234,11] <- 1
-investigation921[262,11] <- 1
-investigation921[303,11] <- 1
-investigation921[33,11] <-2
-investigation921[116,11] <-2
-investigation921[164,11] <-2
-investigation921[178,11] <-2
-investigation921[226,11] <-2
-investigation921[269,11] <-2
-investigation921[277,11] <-2
-investigation921[364,11] <-2
-investigation921[471,11] <-2
-investigation921[699,11] <-2
-investigation921[726,11] <-2
+#第 20, 32, 115, 163, 171, 177, 189, 212, 225, 243, 268, 276, 328, 351, 363, 372, 
+#379, 381, 437, 470, 481, 505, 514, 548, 552, 565, 590, 698, 725, 742, 753, 755, 764, 
+#775, 784, 793, 798 列。
+
+#表單上填答了 3 份校內工作但與原填寫「校內工作份數」不符，故修正為「3 份校內工作」：
+#第 58, 153, 216, 312, 354, 473, 492, 506, 507 列。
+
+#表單上填答了 4 份校內工作但與原填寫「校內工作份數」不符，故修正為「4 份校內工作」：
+#第 228, 511, 715 列。
+
+#表單上填答了 4 份校內工作但因選項上限僅有 4 份，而在填答完第四份工作後，該樣本「仍
+#有其他校內工作」，故應至少有 5 份校內工作，修正為「5 份校內工作」：第 138, 615 列
+
+investigation921[24,11] <- 1
+investigation921[129,11] <- 1
+investigation921[231,11] <- 1
+investigation921[245,11] <- 1
+investigation921[259,11] <- 1
+investigation921[268,11] <- 1
+investigation921[276,11] <- 1
+investigation921[300,11] <- 1
+investigation921[314,11] <- 1
+investigation921[328,11] <- 1
+investigation921[331,11] <- 1
+investigation921[449,11] <- 1
+investigation921[577,11] <- 1
+investigation921[590,11] <- 1
+investigation921[785,11] <- 1
+
+
+investigation921[19,11] <- 2
+investigation921[31,11] <- 2
+investigation921[114,11] <- 2
+investigation921[162,11] <- 2
+investigation921[170,11] <- 2
+investigation921[176,11]  <- 2
+investigation921[188,11] <- 2
+investigation921[211,11] <- 2
+investigation921[224,11] <- 2
+investigation921[242,11] <- 2
+investigation921[267,11] <- 2
+investigation921[275,11] <-2
+investigation921[327,11] <-2
+investigation921[350,11] <-2
+investigation921[362,11] <-2
+investigation921[371,11] <-2
+
+#379, 381, 437, 470, 481, 505, 514, 548, 552, 565, 590, 698, 725, 742, 753, 
+investigation921[378,11] <-2
+investigation921[380,11] <-2
+investigation921[436,11] <-2
+investigation921[470,11] <-2
+investigation921[480,11] <-2
+investigation921[504,11] <-2
+investigation921[513,11] <-2
+investigation921[547,11] <-2
+investigation921[551,11] <-2
+investigation921[564,11] <-2
+investigation921[589,11] <-2
+investigation921[697,11] <-2
+investigation921[724,11] <-2
+investigation921[741,11] <-2
+investigation921[752,11] <-2
+#755, 764, 775, 784, 793, 798 列。
+
 investigation921[754,11] <-2
-investigation921[776,11] <-2
-investigation921[765,11] <-2
-investigation921[785,11] <-2
-investigation921[794,11] <-2
-investigation921[355,11] <-3
-investigation921[604,11] <-3
-investigation921[740,11] <-3
-investigation921[270,11] <-1
-investigation921[333,11] <-1
-investigation921[451,11] <-1
-investigation921[579,11] <-1
-investigation921[592,11] <-1
-investigation921[787,11] <-1
+investigation921[763,11] <-2
+investigation921[774,11] <-2
+investigation921[783,11] <-2
+investigation921[792,11] <-2
 
-# 1 <-2
-investigation921[59,11] <-3
-investigation921[154,11] <-3
-investigation921[217,11] <-3
-investigation921[355,11] <-3
-investigation921[507,11] <-3
-investigation921[508,11] <-3
-investigation921[604,11] <-3
-investigation921[740,11] <-3
-investigation921[773,11] <-3
-# 2 <-3
-investigation921[229,11] <-4
-# 2 <-4
+investigation921[797,11] <-2
 
-investigation921[715,11] <-4
-# 3 <-4
+investigation921[57,11] <-3
+investigation921[152,11] <-3
+investigation921[215,11] <-3
+investigation921[311,11] <-3
+investigation921[353,11] <-3
+investigation921[472,11] <-3
+investigation921[491,11] <-3
+investigation921[505,11] <-3
+investigation921[506,11] <-3
 
+investigation921[227,11] <-4
+investigation921[510,11] <-4
+investigation921[714,11] <-4
 
-investigation921[14,11] <-5
+investigation921[137,11] <-5
 investigation921[616,11] <-5
-investigation921[512,11] <-5
-# 4 <-5
-
-investigation921[769,11] <-3
-investigation921[792,11] <-3
-# 3 <-4
-
-investigation921[330,11] <-1
-# 4 <-1
-
-investigation921[213,11] <-2
-investigation921[549,11] <-2
-# 4 <-2
-
-investigation921[566,11] <-2
-investigation921[756,11] <-2
-# 1 <-2
-
-investigation921[474,11] <-3
-# 4 <-3
-
-
-#p.797-799
-#p.32、115、163、177、225、268、276、363、470、670、698、725、753、775、764、784、793原填寫「有1份校內工作」實際上應該是2份校內工作。
-#p.354、603、739原填寫「有1份校內工作」實際上應該是3份校內工作。
-#p.269、332、450、578、591、786原填寫「有2份校內工作」實際上應該是1份校內工作。
-#p.58、153、216、354、506、507、603、739、772原填寫「有2份校內工作」實際上應該是3份校內工作。
-#p.228原填寫「有2份校內工作」，實際上應該是填寫了4份校內工作。
-#p.715原填寫「有3份校內工作」，實際上應該是填寫了4份校內工作。
-
-#p.13、615、511原填寫「有4份校內工作」，實際上應該是填寫了5份校內工作。(不確定)
-#p.768、791原填寫「有4份校內工作」，實際上應該是填寫了3份校內工作。
-#p.329原填寫「有4份校內工作」，表單上只填寫了1份的內容。
-#p.212、548原填寫「有4份校內工作」，表單上只填寫了2份的內容。
-#p.565、755原填寫「有1份校內工作」實際上應該是2份校內工作。
-#p.473 原填寫「有4份校內工作」，實際上應該是填寫了3份校內工作。
-
 
 investigation1 <- investigation921[-817,]    
 investigation2 <- investigation1[-809,]
 investigation3 <- investigation2[-796:-798,]
 investigation4 <- investigation3[-491:-504,]
 investigationv <- investigation4[-1:-4,]
+investigation <- subset(investigationv,work =="TRUE")
 
 investigation$rev1<-recode(investigation$rev1,"'0-2000'=1000")
 investigation$rev1<-recode(investigation$rev1,"'2001-4000'=3000")
@@ -217,6 +199,8 @@ investigation$rev1<-recode(investigation$rev1,"'14000-28000'=21000")
 investigation$rev1<-recode(investigation$rev1,"'20000左右，不只掛一個計畫助理'=20000")
 investigation$rev1<-recode(investigation$rev1,"1000=1000")
 summary(investigation$rev1)
+
+#car在recode中文上會出現問題，所以底下使用取代功能。
 
 summary.factor(investigation$workhour1)
 
@@ -350,8 +334,8 @@ investigation$totalrev <- (investigation$rev1 + investigation$rev2 +
 summary(investigation)
 investigation$
 
-investigation$totalexp <- ((0.2*investigation[,2])+ investigation[,3] +investigation[,4])
-summary(investigation$totalexp)
+totalexp <- ((0.2*investigation[,2])+ investigation[,3] +investigation[,4])
+summary(totalexp)
 
 investigation$totalwhr <- (investigation$workhour1 + investigation$workhour2 + 
                            investigation$workhour3 + investigation$workhour4 +
@@ -370,6 +354,10 @@ investigation$ofcworknum <- (investigation$ofcnum1 + investigation$ofcnum2+
 investigation$totalworknum <- (investigation$worknum + investigation$ofcworknum)
 
 summary(investigation$totalexp)
+inj <- as.data.frame(totalexp)
+investigation33 <- cbind(investigation,inj)
+data1 <- investigation33[,-38:-39]
+write.csv(data1,"data1.csv")
 
 
 #以下是讀取BIG5方法，但或許從我更新的GOOGLE試算表下載會比較少問題。
