@@ -1,5 +1,3 @@
-- 繪圖指令
-
 ## 試繪圖1
 各地區扣除學雜費支出累積機率密度圖<https://drive.google.com/file/d/1OtndrUYkzI6-3wKHRiqW-InGTcgy3PXF/view?usp=sharing>
 ## 繪圖指令
