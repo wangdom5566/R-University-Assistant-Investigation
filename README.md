@@ -73,14 +73,17 @@ R版本資訊摘要
 
 ```{r}
 
-# 安裝car套件
-install.packages("car")
-library(car)
+#以下是讀取BIG5方法，但或許從我更新的GOOGLE試算表下載會比較少問題。
+#library(readr)
+#investigation1015 <- read_csv("D:/investigation1015.csv", 
+#                          locale = locale(encoding = "BIG5"))
+#View(investigation1015)
 
-#在D槽讀取investigation921csv檔，
+
+#在D槽讀取investigation1015csv檔，
 #把NA轉成0利於變項合併
 
-investigation921[is.na(investigation921)] <- 0  
+investigation1015[is.na(investigation1015)] <- 0  
 
 #據實際情況修改樣本資料：填答的工作份數與後續問題填答數不符者
 #表單上僅填答 1 份校內工作但與原填寫「校內工作份數」不符，故修正為「1 份校內工作」：
@@ -777,7 +780,7 @@ table(v)[table(v)==max(table(v))]
 summary(data$totalwhr)
 
 
-
+#腳本結束
 pause
 
 ```
