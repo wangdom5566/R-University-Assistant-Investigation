@@ -100,106 +100,109 @@ investigation921[is.na(investigation921)] <- 0
 #表單上填答了 4 份校內工作但因選項上限僅有 4 份，而在填答完第四份工作後，該樣本「仍
 #有其他校內工作」，故應至少有 5 份校內工作，修正為「5 份校內工作」：第 138, 615 列
 
-investigation921[24,11] <- 1
-investigation921[129,11] <- 1
-investigation921[231,11] <- 1
-investigation921[245,11] <- 1
-investigation921[259,11] <- 1
-investigation921[268,11] <- 1
-investigation921[276,11] <- 1
-investigation921[300,11] <- 1
-investigation921[314,11] <- 1
-investigation921[328,11] <- 1
-investigation921[331,11] <- 1
-investigation921[449,11] <- 1
-investigation921[577,11] <- 1
-investigation921[590,11] <- 1
-investigation921[785,11] <- 1
+investigation1015[24,11] <- 1
+investigation1015[129,11] <- 1
+investigation1015[231,11] <- 1
+investigation1015[245,11] <- 1
+investigation1015[259,11] <- 1
+investigation1015[268,11] <- 1
+investigation1015[276,11] <- 1
+investigation1015[300,11] <- 1
+investigation1015[314,11] <- 1
+investigation1015[328,11] <- 1
+investigation1015[331,11] <- 1
+investigation1015[449,11] <- 1
+investigation1015[577,11] <- 1
+investigation1015[590,11] <- 1
+investigation1015[785,11] <- 1
 
 
-investigation921[19,11] <- 2
-investigation921[31,11] <- 2
-investigation921[114,11] <- 2
-investigation921[162,11] <- 2
-investigation921[170,11] <- 2
-investigation921[176,11]  <- 2
-investigation921[188,11] <- 2
-investigation921[211,11] <- 2
-investigation921[224,11] <- 2
-investigation921[242,11] <- 2
-investigation921[267,11] <- 2
-investigation921[275,11] <-2
-investigation921[327,11] <-2
-investigation921[350,11] <-2
-investigation921[362,11] <-2
-investigation921[371,11] <-2
+investigation1015[19,11] <- 2
+investigation1015[31,11] <- 2
+investigation1015[114,11] <- 2
+investigation1015[162,11] <- 2
+investigation1015[170,11] <- 2
+investigation1015[176,11]  <- 2
+investigation1015[188,11] <- 2
+investigation1015[211,11] <- 2
+investigation1015[224,11] <- 2
+investigation1015[242,11] <- 2
+investigation1015[267,11] <- 2
+investigation1015[275,11] <-2
+investigation1015[327,11] <-2
+investigation1015[350,11] <-2
+investigation1015[362,11] <-2
+investigation1015[371,11] <-2
 
 #379, 381, 437, 470, 481, 505, 514, 548, 552, 565, 590, 698, 725, 742, 753, 
-investigation921[378,11] <-2
-investigation921[380,11] <-2
-investigation921[436,11] <-2
-investigation921[470,11] <-2
-investigation921[480,11] <-2
-investigation921[504,11] <-2
-investigation921[513,11] <-2
-investigation921[547,11] <-2
-investigation921[551,11] <-2
-investigation921[564,11] <-2
-investigation921[589,11] <-2
-investigation921[697,11] <-2
-investigation921[724,11] <-2
-investigation921[741,11] <-2
-investigation921[752,11] <-2
+investigation1015[378,11] <-2
+investigation1015[380,11] <-2
+investigation1015[436,11] <-2
+investigation1015[470,11] <-2
+investigation1015[480,11] <-2
+investigation1015[504,11] <-2
+investigation1015[513,11] <-2
+investigation1015[547,11] <-2
+investigation1015[551,11] <-2
+investigation1015[564,11] <-2
+investigation1015[589,11] <-2
+investigation1015[697,11] <-2
+investigation1015[724,11] <-2
+investigation1015[741,11] <-2
+investigation1015[752,11] <-2
 #755, 764, 775, 784, 793, 798 列。
 
-investigation921[754,11] <-2
-investigation921[763,11] <-2
-investigation921[774,11] <-2
-investigation921[783,11] <-2
-investigation921[792,11] <-2
+investigation1015[754,11] <-2
+investigation1015[763,11] <-2
+investigation1015[774,11] <-2
+investigation1015[783,11] <-2
+investigation1015[792,11] <-2
 
-investigation921[797,11] <-2
+investigation1015[797,11] <-2
 
-investigation921[57,11] <-3
-investigation921[152,11] <-3
-investigation921[215,11] <-3
-investigation921[311,11] <-3
-investigation921[353,11] <-3
-investigation921[472,11] <-3
-investigation921[491,11] <-3
-investigation921[505,11] <-3
-investigation921[506,11] <-3
+investigation1015[57,11] <-3
+investigation1015[152,11] <-3
+investigation1015[215,11] <-3
+investigation1015[311,11] <-3
+investigation1015[353,11] <-3
+investigation1015[472,11] <-3
+investigation1015[491,11] <-3
+investigation1015[505,11] <-3
+investigation1015[506,11] <-3
 
-investigation921[227,11] <-4
-investigation921[510,11] <-4
-investigation921[714,11] <-4
+investigation1015[227,11] <-4
+investigation1015[510,11] <-4
+investigation1015[714,11] <-4
 
-investigation921[137,11] <-5
-investigation921[616,11] <-5
+investigation1015[137,11] <-5
+investigation1015[616,11] <-5
 
-investigation1 <- investigation921[-817,]    
+investigation1 <- investigation1015[-817,]    
 investigation2 <- investigation1[-809,]
 investigation3 <- investigation2[-796:-798,]
 investigation4 <- investigation3[-491:-504,]
 investigationv <- investigation4[-1:-4,]
+
 investigation <- subset(investigationv,work =="TRUE")
 
-investigation$rev1<-recode(investigation$rev1,"'0-2000'=1000")
-investigation$rev1<-recode(investigation$rev1,"'2001-4000'=3000")
-investigation$rev1<-recode(investigation$rev1,"'4001-6000'=5000")
-investigation$rev1<-recode(investigation$rev1,"'6001-8000'=7000")
-investigation$rev1<-recode(investigation$rev1,"'8001-10000'=9000")
-investigation$rev1<-recode(investigation$rev1,"'10001-12000'=11000")
-investigation$rev1<-recode(investigation$rev1,"'12001-14000'=13000")
-investigation$rev1<-recode(investigation$rev1,"'14001-16000'=15000")
-investigation$rev1<-recode(investigation$rev1,"'14001-16000'=15000")
-investigation$rev1<-recode(investigation$rev1,"'算學期的，一學期4500'=900")
-investigation$rev1<-recode(investigation$rev1,"'1000~6000都有'=3500")
-investigation$rev1<-recode(investigation$rev1,"'14000-28000'=21000")
-investigation$rev1<-recode(investigation$rev1,"'20000左右，不只掛一個計畫助理'=20000")
-investigation$rev1<-recode(investigation$rev1,"1000=1000")
-summary(investigation$rev1)
 
+investigation$rev1[investigation$rev1=="0-2000"]   <-1000
+investigation$rev1[investigation$rev1=="2001-4000"]<-3000
+investigation$rev1[investigation$rev1=="4001-6000"]<-5000
+investigation$rev1[investigation$rev1=="6001-8000"]<-7000
+investigation$rev1[investigation$rev1=="8001-10000"]<-9000
+investigation$rev1[investigation$rev1=="10001-12000"]<-11000
+investigation$rev1[investigation$rev1=="12001-14000"]<-13000
+investigation$rev1[investigation$rev1=="14001-16000"]<-15000
+investigation$rev1[investigation$rev1=="算學期的，一學期4500"]<-900
+investigation$rev1[investigation$rev1=="31000~6000都有"]<-3500
+investigation$rev1[investigation$rev1=="14000-28000"]<-21000
+investigation$rev1[investigation$rev1=="20000左右，不只掛一個計畫助理"]<-20000
+investigation$rev1[investigation$rev1=="1000"]<-1000
+
+
+investigation$rev1 <- as.numeric(investigation$rev1)
+summary(investigation$rev1)
 #car在recode中文上會出現問題，所以底下使用取代功能。
 
 summary.factor(investigation$workhour1)
@@ -323,24 +326,244 @@ investigation$ workhour4[investigation$ workhour4=="31-40HR"]<-35
 investigation$workhour4<-as.numeric(investigation$workhour4)
 summary(investigation$workhour4)
 
+#校內工作
+#labor:第一份工作是否是勞僱型助理
+#contract:是否有勞動契約
+#paywage:是否超過一個月以上的遲發薪
+
+summary.factor(investigation1015$labor1)
+investigation$labor1[investigation$labor1=="勞僱型助理"]<-1
+investigation$labor1[investigation$labor1=="獎助生(學習型助理)"]<-0
+investigation$labor1<-as.numeric(investigation$labor1)
+summary(investigation$labor1)
+
+summary.factor(investigation1015$labor2)
+investigation$labor2[investigation$labor2=="勞僱型助理"]<-1
+investigation$labor2[investigation$labor2=="獎助生(學習型助理)"]<-0
+investigation$labor2<-as.numeric(investigation$labor2)
+summary(investigation$labor2)
+
+summary.factor(investigation1015$labor2)
+investigation$labor2[investigation$labor2=="勞僱型助理"]<-1
+investigation$labor2[investigation$labor2=="獎助生(學習型助理)"]<-0
+investigation$labor2<-as.numeric(investigation$labor2)
+summary(investigation$labor2)
+
+summary.factor(investigation1015$labor3)
+investigation$labor3[investigation$labor3=="勞僱型助理"]<-1
+investigation$labor3[investigation$labor3=="獎助生(學習型助理)"]<-0
+investigation$labor3<-as.numeric(investigation$labor3)
+summary(investigation$labor3)
+
+summary.factor(investigation1015$labor4)
+investigation$labor4[investigation$labor4=="勞僱型助理"]<-1
+investigation$labor4[investigation$labor4=="獎助生(學習型助理)"]<-0
+investigation$labor4<-as.numeric(investigation$labor4)
+summary(investigation$labor4)
+
+summary.factor(investigation1015$contract1)
+investigation$contract1[investigation$contract1=="是"]<-1
+investigation$contract1[investigation$contract1=="否"]<-0
+investigation$contract1[investigation$contract1=="不知道"]<-999
+investigation$contract1<-as.numeric(investigation$contract1)
+summary(investigation$contract1)
+
+summary.factor(investigation1015$contract2)
+investigation$contract2[investigation$contract2=="是"]<-1
+investigation$contract2[investigation$contract2=="否"]<-0
+investigation$contract2[investigation$contract2=="不知道"]<-999
+investigation$contract2<-as.numeric(investigation$contract2)
+summary(investigation$contract2)
+
+summary.factor(investigation1015$contract3)
+investigation$contract3[investigation$contract3=="是"]<-1
+investigation$contract3[investigation$contract3=="否"]<-0
+investigation$contract3[investigation$contract3=="不知道"]<-999
+investigation$contract3<-as.numeric(investigation$contract3)
+summary(investigation$contract3)
+
+summary.factor(investigation1015$contract4)
+investigation$contract4[investigation$contract4=="是"]<-1
+investigation$contract4[investigation$contract4=="否"]<-0
+investigation$contract4[investigation$contract4=="不知道"]<-999
+investigation$contract4<-as.numeric(investigation$contract4)
+summary(investigation$contract4)
+
+summary.factor(investigation1015$paywage1)
+investigation$paywage1[investigation$paywage1=="一個學期發放一次"]<-0
+investigation$paywage1[investigation$paywage1=="下個月月底發薪"]<-0
+investigation$paywage1[investigation$paywage1=="不一定，大多數是準時的，偶爾兩個月才入帳"]<-1
+investigation$paywage1[investigation$paywage1=="不清楚"]<-999
+investigation$paywage1[investigation$paywage1=="不清楚發放時間"]<-999
+investigation$paywage1[investigation$paywage1=="不會"]<-0
+investigation$paywage1[investigation$paywage1=="企劃的補助要慢慢下來，所以會拖到"]<-1
+investigation$paywage1[investigation$paywage1=="我也不知道什麼時候會發，因為是一學期只給一次的錢"]<-0
+investigation$paywage1[investigation$paywage1=="固定隔月15日發放，但不確定是否算拖欠"]<-0
+
+investigation$paywage1[investigation$paywage1=="契約明文隔月發放，約在隔月10號發薪"]<-0
+investigation$paywage1[investigation$paywage1=="第一個月都不發，第二個月才開始發"]<-0
+investigation$paywage1[investigation$paywage1=="脫半個月"]<-0
+investigation$paywage1[investigation$paywage1=="通常是以自己提報系統後經簽核始撥款，發薪日期極不穩定。"]<-1
+investigation$paywage1[investigation$paywage1=="都是一個月後才會拿到"]<-0
+investigation$paywage1[investigation$paywage1=="勞雇型助理最一開始認定身分有被學校刁難。"]<-1
+
+investigation$paywage1[investigation$paywage1=="開始不到一個月的新人，還沒開始領薪"]<-0
+investigation$paywage1[investigation$paywage1=="僅有一次是因為校內改制，慢了1.5個月才發放"]<-1
+investigation$paywage1[investigation$paywage1=="會"]<-1
+investigation$paywage1[investigation$paywage1=="會，因為學校一次核銷工讀金約需47小時時數，系辦會輪流讓工讀生領薪水"]<-1
+investigation$paywage1[investigation$paywage1=="會，但是因為助理需要整批報帳，其他同學未點擊工作時數確認被拖延到"]<-1
+investigation$paywage1[investigation$paywage1=="暫時還沒有，但以前被拖欠過三個月"]<-1
+
+investigation$paywage1[investigation$paywage1=="學校核帳很慢，開學後才確定助理名額。確定後才填寫出勤紀錄，經常已經工作一個多月後才有薪水入帳。"]<-1
+investigation$paywage1[investigation$paywage1=="學校統一於隔月月底發薪資"]<-1
+investigation$paywage1[investigation$paywage1=="會"]<-1
+investigation$paywage1[investigation$paywage1=="學習型助理是這學期四月開始受聘，還沒領到薪水。"]<-1
+investigation$paywage1[investigation$paywage1=="學習型助理薪水整學期一次發放，工讀金部分按月發放未拖延"]<-0
+
+investigation$paywage1<-as.numeric(investigation$paywage1)
+summary(investigation$paywage1)
+
+
+summary.factor(investigation1015$paywage2)
+investigation$paywage2[investigation$paywage2=="30小時助理，算一個學期的錢。固定在學期中一次給"]<-0
+investigation$paywage2[investigation$paywage2=="不清楚"]<-999
+investigation$paywage2[investigation$paywage2=="不清楚發放時間"]<-999
+investigation$paywage2[investigation$paywage2=="不清楚，尚未發放"]<-999
+investigation$paywage2[investigation$paywage2=="不會"]<-0
+investigation$paywage2[investigation$paywage2=="同上一份工作"]<-999
+investigation$paywage2[investigation$paywage2=="有，不過是自己的疏失"]<-1
+investigation$paywage2[investigation$paywage2=="校方要求學習型助理需繳交實習學分費1500"]<-999
+investigation$paywage2[investigation$paywage2=="偶爾 須自己提報工時至系統後簽核，實際發薪日不穩定。"]<-1
+investigation$paywage2[investigation$paywage2=="會"]<-1
+investigation$paywage2[investigation$paywage2=="學校統一於隔月底發薪"]<-0
+
+investigation$paywage2<-as.numeric(investigation$paywage2)
+summary(investigation$paywage2)
+
+summary.factor(investigation1015$paywage3)
+investigation$paywage3[investigation$paywage3=="不會"]<-0
+investigation$paywage3[investigation$paywage3=="會"]<-1
+investigation$paywage3<-as.numeric(investigation$paywage3)
+summary(investigation$paywage3)
+
+summary.factor(investigation1015$paywage4)
+investigation$paywage4[investigation$paywage4=="不會"]<-0
+investigation$paywage4[investigation$paywage4=="會"]<-1
+investigation$paywage4<-as.numeric(investigation$paywage4)
+summary(investigation$paywage4)
+
+
+
+#校外工作
+#ofccontract:校外是否簽勞動契約	
+#ofcins:     校外是否有保勞保	
+#ofcwage:    校外是否有薪水遲發
+
+summary.factor(investigation1015$ofccontract1)
+investigation$ofccontract1[investigation$ofccontract1=="是"]<-1
+investigation$ofccontract1[investigation$ofccontract1=="否"]<-0
+investigation$ofccontract1[investigation$ofccontract1=="否"]<-0
+investigation$ofccontract1[investigation$ofccontract1=="不知道"]<-999
+investigation$ofccontract1<-as.numeric(investigation$ofccontract1)
+summary(investigation$ofccontract1)
+
+summary.factor(investigation1015$ofccontract2)
+investigation$ofccontract2[investigation$ofccontract2=="是"]<-1
+investigation$ofccontract2[investigation$ofccontract2=="否"]<-0
+investigation$ofccontract2[investigation$ofccontract2=="不知道"]<-999
+investigation$ofccontract2<-as.numeric(investigation$ofccontract2)
+summary(investigation$ofccontract2)
+
+summary.factor(investigation1015$ofccontract3)
+investigation$ofccontract3[investigation$ofccontract3=="是"]<-1
+investigation$ofccontract3[investigation$ofccontract3=="否"]<-0
+investigation$ofccontract3<-as.numeric(investigation$ofccontract3)
+summary(investigation$ofccontract3)
+
+summary.factor(investigation1015$ofccontract4)
+investigation$ofccontract4[investigation$ofccontract4=="否"]<-0
+investigation$ofccontract4<-as.numeric(investigation$ofccontract4)
+summary(investigation$ofccontract4)
+
+summary.factor(investigation1015$ofcins1)
+investigation$ofcins1[investigation$ofcins1=="是"]<-1
+investigation$ofcins1[investigation$ofcins1=="否"]<-0
+investigation$ofcins1<-as.numeric(investigation$ofcins1)
+summary(investigation$ofcins1)
+
+summary.factor(investigation1015$ofcins2)
+investigation$ofcins2[investigation$ofcins2=="是"]<-1
+investigation$ofcins2[investigation$ofcins2=="否"]<-0
+investigation$ofcins2<-as.numeric(investigation$ofcins2)
+summary(investigation$ofcins2)
+
+summary.factor(investigation1015$ofcins3)
+investigation$ofcins3[investigation$ofcins3=="是"]<-1
+investigation$ofcins3[investigation$ofcins3=="否"]<-0
+investigation$ofcins3<-as.numeric(investigation$ofcins3)
+summary(investigation$ofcins3)
+
+
+summary.factor(investigation1015$ofcins4)
+investigation$ofcins4[investigation$ofcins4=="是"]<-1
+investigation$ofcins4[investigation$ofcins4=="否"]<-0
+investigation$ofcins4<-as.numeric(investigation$ofcins4)
+summary(investigation$ofcins4)
+
+summary.factor(investigation1015$ofcwage1)
+investigation$ofcwage1[investigation$ofcwage1=="一梯（六次）發一次薪資"]<-999
+investigation$ofcwage1[investigation$ofcwage1=="不會"]<-0
+investigation$ofcwage1[investigation$ofcwage1=="月初第一次上班發放"]<-0
+investigation$ofcwage1[investigation$ofcwage1=="以時薪計算，約兩個月給一次"]<-0
+investigation$ofcwage1[investigation$ofcwage1=="因為是承攬形式的工作，論件計酬，所以沒有每個月固定發放，不過大概都完成後2個月才會收到款項。"]<-0
+investigation$ofcwage1[investigation$ofcwage1=="她媽過年不發薪水的coco啦幹"]<-1
+investigation$ofcwage1[investigation$ofcwage1=="服務業，依場次記酬（一場約6H/700元）並現場領薪"]<-0
+investigation$ofcwage1[investigation$ofcwage1=="剛開始做不知道"]<-999
+investigation$ofcwage1[investigation$ofcwage1=="會"]<-1
+investigation$ofcwage1[investigation$ofcwage1=="預防及延緩失能計畫，期滿才發錢"]<-0
+investigation$ofcwage1[investigation$ofcwage1=="領日薪"]<-0
+
+investigation$ofcwage1<-as.numeric(investigation$ofcwage1)
+summary(investigation$ofcwage1)
+
+summary.factor(investigation1015$ofcwage2)
+investigation$ofcwage2[investigation$ofcwage2=="不會"]<-0
+investigation$ofcwage2[investigation$ofcwage2=="以件計酬"]<-0
+investigation$ofcwage2[investigation$ofcwage2=="按件計酬 專案性質，專案結束才發放"]<-0
+investigation$ofcwage2[investigation$ofcwage2=="會"]<-1
+investigation$ofcwage2[investigation$ofcwage2=="還未領薪"]<-999
+investigation$ofcwage2<-as.numeric(investigation$ofcwage2)
+summary(investigation$ofcwage2)
+
+summary.factor(investigation1015$ofcwage3)
+investigation$ofcwage3[investigation$ofcwage3=="不會"]<-0
+investigation$ofcwage3[investigation$ofcwage3=="看她媽老闆心情 專案性質，專案結束才發放，並不按期發放"]<-0
+investigation$ofcwage3[investigation$ofcwage3=="會"]<-1
+investigation$ofcwage3<-as.numeric(investigation$ofcwage3)
+summary(investigation$ofcwage3)
+
+summary.factor(investigation1015$ofcwage4)
+investigation$ofcwage4[investigation$ofcwage4=="不會"]<-0
+investigation$ofcwage4[investigation$ofcwage4=="會"]<-1
+investigation$ofcwage4<-as.numeric(investigation$ofcwage4)
+summary(investigation$ofcwage4)
+
+
+
 investigation[is.na(investigation)] <- 0  
 
 
-investigation$totalrev <- (investigation$rev1 + investigation$rev2 + 
-                           investigation$rev3 + investigation$rev4 + 
-                           investigation$ofcrev + investigation$ofcrev2 + 
-                           investigation$ofcrev3 + investigation$ofcrev4)
 
-summary(investigation)
-investigation$
+investigation$totalrev <- (investigation$rev1 + investigation$rev2  + investigation$rev3 + investigation$rev4  + investigation$ofcrev + investigation$ofcrev2 + investigation$ofcrev3 + investigation$ofcrev4)
+summary(investigation$totalrev)
 
-totalexp <- ((0.2*investigation[,2])+ investigation[,3] +investigation[,4])
-summary(totalexp)
+investigation$totalexp <- ( (investigation$ex.tuition)*0.2 + (investigation$ex.other) + (investigation$ex.rent))
+
 
 investigation$totalwhr <- (investigation$workhour1 + investigation$workhour2 + 
-                           investigation$workhour3 + investigation$workhour4 +
-                           investigation$ofcwhr    + investigation$ofcwhr2   +
-                           investigation$ofcwhr3   + investigation$ofcwhr4)
+                             investigation$workhour3 + investigation$workhour4 +
+                             investigation$ofcwhr    + investigation$ofcwhr2   +
+                             investigation$ofcwhr3   + investigation$ofcwhr4)
 summary(investigation$totalwhr)
 
 investigation$ofcnum1 <- ifelse(investigation$ofcwhr>0,1,0)
@@ -349,23 +572,210 @@ investigation$ofcnum3 <- ifelse(investigation$ofcwhr3>0,1,0)
 investigation$ofcnum4 <- ifelse(investigation$ofcwhr4>0,1,0)
 
 investigation$ofcworknum <- (investigation$ofcnum1 + investigation$ofcnum2+
-                             investigation$ofcnum3 + investigation$ofcnum4)
+                               investigation$ofcnum3 + investigation$ofcnum4)
 
 investigation$totalworknum <- (investigation$worknum + investigation$ofcworknum)
 
-summary(investigation$totalexp)
-inj <- as.data.frame(totalexp)
-investigation33 <- cbind(investigation,inj)
-data1 <- investigation33[,-38:-39]
-write.csv(data1,"data1.csv")
+investigation$totallabor <- (investigation$labor1 + investigation$labor2 + 
+                            investigation$labor3 + investigation$labor4)
 
+investigation$totalcontract <- (investigation$contract1 + investigation$contract2 + 
+                                  investigation$contract3 + investigation$contract4)
 
-#以下是讀取BIG5方法，但或許從我更新的GOOGLE試算表下載會比較少問題。
-#library(readr)
-#revandexpense <- read_csv("D:/revandexpense.csv", 
-#                          locale = locale(encoding = "BIG5"))
-#View(revandexpense)
-#腳本結束~~
+investigation$totalins <-(investigation$ofcins1 + investigation$ofcins2 + 
+                            investigation$ofcins3 + investigation$ofcins4)
+
+investigation$totalwage <-(investigation$paywage1 + investigation$paywage2 + 
+                            investigation$paywage3 + investigation$paywage4)
+
+investigation$totalofcwage <-(investigation$ofcwage1 + investigation$ofcwage2 + 
+                            investigation$ofcwage3 + investigation$ofcwage4)
+
+dataE <- subset(investigation,totalwhr <214)
+write.csv(dataE,"datacleancc.csv")
+
+#各次群體描述統計
+#應該可以用迴圈處理，但要花點巧思，我暫時懶得動腦。
+#北部國立大學大學生
+data <- subset(datae,region == "north" &  school == "public" & grad =="FALSE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+summary(data$totalwhr)
+
+#北部國立大學研究生
+data <- subset(datae,region == "north" &  school == "public" & grad =="TRUE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#北部私立大學大學生
+data <- subset(datae,region == "north" &  school == "private" & grad =="FALSE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#北部私立大學研究生
+data <- subset(datae,region == "north" &  school == "private" & grad =="TRUE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#中部國立大學大學生
+data <- subset(datae,region == "central" &  school == "public" & grad =="FALSE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#中部國立大學研究生
+data <- subset(datae,region == "central" &  school == "public" & grad =="TRUE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#中部私立大學大學生
+data <- subset(datae,region == "central" &  school == "private" & grad =="FALSE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#中部私立大學研究生
+data <- subset(datae,region == "central" &  school == "private" & grad =="TRUE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#南部國立大學大學生
+data <- subset(datae,region == "south" &  school == "public" & grad =="FALSE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#南部私立大學大學生
+data <- subset(datae,region == "south" &  school == "private" & grad =="FALSE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#南部私立大學研究生
+data <- subset(datae,region == "south" &  school == "private" & grad =="TRUE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#東部國立大學大學生
+data <- subset(datae,region == "east" &  school == "public" & grad =="FALSE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#東部國立大學研究生
+data <- subset(datae,region == "east" &  school == "public" & grad =="TRUE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
+#東部私立大學大學生
+data <- subset(datae,region == "east" &  school == "private" & grad =="FALSE")
+summary(data$totalexp)
+summary(data$totalrev)
+sd(data$totalexp)
+sd(data$totalrev)
+
+x<- data$worknum
+table(x)[table(x)==max(table(x))]
+v<- data$ofcworknum
+table(v)[table(v)==max(table(v))]
+summary(data$totalwhr)
+
 
 
 pause
