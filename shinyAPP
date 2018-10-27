@@ -1,3 +1,6 @@
+library(shiny)
+library(ggplot2)
+
 #example data
 data(iris)
 #make some factors
