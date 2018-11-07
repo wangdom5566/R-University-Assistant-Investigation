@@ -3,6 +3,9 @@
 - 表單九是清完資料的試算表
 <https://docs.google.com/spreadsheets/d/1Kmw9Fo7zHbbQD9IoBIy89VGWkOvKPuTo79IPYu1xBX0/edit#gid=1057143170>
 
+- 網頁資料視覺化(測試版)
+<https://runiversities-assistants-survey.shinyapps.io/shinyapp/>
+
 ## R版本與中文亂碼解決
 
 - R version       3.5.0  (2018-04-23)
