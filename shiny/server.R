@@ -2,7 +2,6 @@ library(ggplot2)
 library(shiny)
 library(psych)
 
-
 shinyServer(function(input, output, session) {
   
   
@@ -13,22 +12,22 @@ shinyServer(function(input, output, session) {
     
     
     df <- read.csv(inFile$datapath, header = input$header, sep = input$sep,
-                   quote = input$quote,encoding = "UTF-8")
+                   quote = input$quote)
+    dnrow<-nrow(df)
+    df$None<-as.factor(rep(".",dnrow))
+    df1<-df
     
-    
-    
-    df.name <-names(df)
     
     updateSelectInput(session, inputId = 'xcol', label = 'X Variable',
-                      choices = names(df), selected = names(df))
+                      choices = names(df1), selected = names(df1))
     updateSelectInput(session, inputId = 'ycol', label = 'Y Variable',
-                      choices = names(df), selected = names(df)[2])  
+                      choices = names(df1), selected = names(df1)[2])  
     updateSelectInput(session, inputId = 'facet.row', label = 'Facet.row',
-                      choices = names(df), selected = names(df)[3])
+                      choices = names(df1), selected = names(df1)[3])
     updateSelectInput(session, inputId = 'color', label = 'color',
-                      choices = names(df), selected = names(df)[3])
+                      choices = names(df1), selected = names(df1)[3])
     
-    return(df)
+    return(df1)
   })
   
   output$contents <- renderTable({
@@ -161,7 +160,7 @@ shinyServer(function(input, output, session) {
       t1<-cbind(x1,y1,z1,u1)
       g1<-as.data.frame(t1)
       
-      ggplot(g1, aes(x=x1, y=y1, fill=u)) +
+      ggplot(g1, aes_string(x=x1, y=y1, fill=u)) +
         geom_bar(stat="identity") +facet_grid(z1~.,)+
         labs(x=input$xcol,y=input$ycol,facet.row=input$facet.row,color=input$color,fill=input$color)+
         theme(axis.title.x = element_text(size = 15))+
@@ -169,9 +168,11 @@ shinyServer(function(input, output, session) {
         theme(axis.text = element_text(size = 15))+
         theme(legend.title=element_text(size=15))+ 
         theme(legend.text=element_text(size=15))
-      
+
     }
     
   })
   
 })
+
+
